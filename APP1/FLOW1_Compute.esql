@@ -1,11 +1,12 @@
 
 
-CREATE COMPUTE MODULE FL1_Compute
+CREATE COMPUTE MODULE FLOW1_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
-		 CALL CopyEntireMessage();
-		set OutputRoot.MQMD.CorrelId=InputRoot.MQMD.MsgId;
+		-- CALL CopyEntireMessage();
+		set OutputRoot.XMLNSC.Customers=InputRoot.DFDL.Employee;
+		set OutputLocalEnvironment.File.Directory.Name='/home/centos/TEMP/';
 		RETURN TRUE;
 	END;
 
