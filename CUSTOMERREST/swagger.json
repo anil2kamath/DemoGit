@@ -1,0 +1,77 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "CUSTOMERREST",
+    "version" : "1.0.0",
+    "description" : "CUSTOMERREST"
+  },
+  "paths" : {
+    "/Customer/Cno/{Cno}/Cname/{Cname}" : {
+      "post" : {
+        "operationId" : "postCname",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a Cname",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "Cno",
+          "in" : "path",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "name" : "Cname",
+          "in" : "path",
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Customer"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    },
+    "/Customer/Cno/{Cno}" : {
+      "get" : {
+        "operationId" : "getCno",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve Cno",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "Cno",
+          "in" : "path",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/customerrest/v1",
+  "definitions" : {
+    "Customer" : {
+      "type" : "object",
+      "properties" : {
+        "Cno" : {
+          "type" : "string"
+        },
+        "Cname" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
